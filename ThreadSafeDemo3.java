@@ -1,20 +1,26 @@
-package com.demo;
-
+package com.captain.demo.threadNoSafe;
 
 import java.util.List;
-import java.util.Vector;
-public class ThreadSafeDemo3 implements Runnable {
-	 private Vector<String>vector;
 
-	    public ThreadSafeDemo3(Vector<String>vector){
-	    	this.vector=vector;
-	    }
-	    public void run(){
-	        while(true){
-	            if(vector.size()>0){
-	                vector.remove(0);
-	                System.out.println("ɾ��һ�����ߴ磺"+vector.size());
-	            }
-	        }
-	    }
+/**
+ * 线程安全演示类
+ * Created by captain on 2017/7/27.
+ */
+public class ThreadSafeDemo3 implements Runnable{
+
+    private List<String> list;
+
+    public ThreadSafeDemo3(List<String> list){
+        this.list = list;
+    }
+
+    @Override
+    public void run() {
+        while(true){
+            if(list.size()>0){
+                list.remove(0);
+                System.out.println("删除一个后尺寸："+list.size());
+            }
+        }
+    }
 }
